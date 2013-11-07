@@ -2,7 +2,7 @@
 # -*- coding:Utf8 -*-
 
 """
-@file: board.py
+@file: plateau.py
 @author:
 
 Module qui s'occupe de dessiner l'échequier.
