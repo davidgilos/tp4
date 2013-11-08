@@ -73,12 +73,12 @@ class Plateau:
 		for x in range (0, 8):
 			print(8-x, " ", end="")  # Imprime le numéro de la ligne 
 			for y in range (0, 8):
-				if (x,y) in self.pieces_blanc:
-					print("[" + PIECE_BLANC[self.pieces_blanc[x,y]] + "] ", end="")  # Le + assure qu'il n'y a pas d'espace d'inserré des deux côtés de la figure
-				elif (x,y) in self.pieces_noir:
-					print("[" + PIECE_NOIR[self.pieces_noir[x,y]] + "] ", end="")		
+				if (x,y) in self.pieces_blanc:  # Vérifie si la case contient une pièce blanche
+					print("[" + PIECE_BLANC[self.pieces_blanc[x,y]] + "] ", end="")  # Imprime la pièce.  Le + assure qu'il n'y a pas d'espace d'inserré des deux côtés de la figure
+				elif (x,y) in self.pieces_noir:  # Vérifie si la case contient une pièce noire
+					print("[" + PIECE_NOIR[self.pieces_noir[x,y]] + "] ", end="")  # Imprime la pièce		
 				else:
-					print("[ ] ", end="")  # Imprime les éléments d'une ligne
+					print("[ ] ", end="")  # Aucune pièce présente, case vide
 			print("\n")
 		print("    1   2   3   4   5   6   7   8")  # Imprime le numéro des colones
 
