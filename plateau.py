@@ -53,21 +53,21 @@ class Plateau:
 	def affichage(self):
 
 		# Représentation graphique des pièces
-		PIECE_NOIR = {
-    		        	"Roi": 	    "♚",
-       		 	      	"Dame":     "♛",
-           		 	  	"Tour":     "♜",
-           		   		"Fou":      "♝",
- 	            	 	"Cavalier": "♞",
-   		         	  	"Pion":     "♟"
-					 }  
 		PIECE_BLANC = {
-					   	"Roi":      "♔",
-   	   		         	"Dame":     "♕",
-   	       		     	"Tour":     "♖",
-   	            		"Fou":      "♗",
-   	           		 	"Cavalier": "♘",
-   	         		   	"Pion":     "♙"
+	   		        	"Roi": 	    "♚",
+						"Dame":     "♛",
+						"Tour":     "♜",
+						"Fou":      "♝",
+						"Cavalier": "♞",
+						"Pion":     "♟"
+					 }  
+		PIECE_NOIR = {
+						"Roi":      "♔",
+						"Dame":     "♕",
+						"Tour":     "♖",
+						"Fou":      "♗",
+						"Cavalier": "♘",
+						"Pion":     "♙"
 				 	  }
 
 		for x in range (0, 8):
