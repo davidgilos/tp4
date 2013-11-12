@@ -55,6 +55,78 @@ class Tour:
         else: # On a essayé autre chose que les lignes et les colonnes ...
             return False
             
+    ###
+    ###
+    ### AUTRE SOLUTION, vous pouvez leur donner les deux.
+    ###
+    ###
+    
+    def posFuturesPossibles(self,plateau):
+        lf = [] # Liste des positions futures possibles
+        # Position au dessus de la position courante
+        for l in reversed(range(0,self.pos[0])): #### VOIR REVERSED !
+            piece = plateau.getPiece(l,self.pos[1])
+            if piece != None:
+                if piece.color == self.color:
+                    break
+                else:
+                    lf += [(l,self.pos[1])]
+                    break
+            else:
+                lf += [(l,self.pos[1])]
+        # Position au dessous de la position courante
+        for l in range(self.pos[0]+1,7):
+            piece = plateau.getPiece(l,self.pos[1])
+            if piece != None:
+                if piece.color == self.color:
+                    break
+                else:
+                    lf += [(l,self.pos[1])]
+                    break
+            else:
+                lf += [(l,self.pos[1])]
+                
+        # Position à gauche de la position courante
+        for c in reversed(range(0,self.pos[1])):#### VOIR REVERSED !
+            piece = plateau.getPiece(self.pos[0],c)
+            if piece != None:
+                if piece.color == self.color:
+                    break
+                else:
+                    lf += [(self.pos[0],c)]
+                    break
+            else:
+                lf += [(self.pos[0],c)]
+        # Position à droite de la position courante
+        for c in range(self.pos[1]+1,7):
+            piece = plateau.getPiece(self.pos[0],c)
+            if piece != None:
+                if piece.color == self.color:
+                    break
+                else:
+                    lf += [(self.pos[0],c)]
+                    break
+            else:
+                lf += [(self.pos[0],c)]
+
+        # Quand on a fait les 4 côtés on renvoie la 
+        # liste des positions futures possibles
+        return lf
+    
+    def deplacer2(self,nouvPos,plateau):
+        if nouvPos in self.posFuturesPossibles(plateau):
+            self.pos = nouvPos
+        # else on ne change rien : on retourne la position courante 
+        # pour signifier que le changement a eu lieu ... ou pas
+        return self.pos
+    
+    def __repr__(self):
+        """ Petit truc pour l'affichage """
+        if self.color == 0:
+            return "Tour Noire "+str(self.pos)
+        else:
+            return "Tour Blanche"+str(self.pos)
+        
 #-----------------
 # FIN CLASSE TOUR
 #-----------------
