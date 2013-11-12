@@ -39,3 +39,13 @@ def load():                                         #Allows the program to
                }
     
     location[save.get('location')]()    
+
+# Après le load, ceci doit être utilisé dans la fonction qui vas replacer le
+# tableau à l'état de sauvegarde  
+def foo():
+    save = {}                      #need to open the file for every new function
+    for key, val in csv.reader(open("save.csv")):
+        save[key] = val
+    
+    abc = str(save.get('abc')) # Assigne la valeur sauvegardé à la variable dans le programme
+    xyz = int(save.get('xyz'))
